@@ -22,7 +22,7 @@ def CheckRequire(check_fn):
 def require(body, key, type="string", err_msg=None, err_code=-2):
     
     if key not in body.keys():
-        raise KeyError(err_msg if err_msg is not None 
+        raise KeyError(err_msg if err_msg is not None
                        else f"Invalid parameters. Expected `{key}`, but not found.", err_code)
     
     val = body[key]
@@ -60,3 +60,4 @@ def require(body, key, type="string", err_msg=None, err_code=-2):
 
     else:
         raise NotImplementedError(f"Type `{type}` not implemented.", err_code)
+    

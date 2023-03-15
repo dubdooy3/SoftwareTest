@@ -33,20 +33,32 @@ const BoardScreen = (props: BoardScreenProps) => {
     const step = () => {
         setBoard((board) => stepBoard(board));
     };
+
     const flip = (i: number, j: number) => {
         // Step 3 & 4 BEGIN
-
-        // Step 3 & 4 END
+        if (autoPlay) {
+            return;
+          }
+          const newBoard = flipCell(board, i, j);
+          if (!newBoard) {
+            return;
+          }
+          setBoard(newBoard);
+        // Step 3 & 4 END3
     };
 
     const startAutoPlay = () => {
         // Step 4 BEGIN
-
+        setAutoPlay(true);
+        timerRef.current = setInterval(() => {
+            step();
+        }, 300);
         // Step 4 END
     };
     const stopAutoPlay = () => {
         // Step 4 BEGIN
-
+        setAutoPlay(false);
+        clearInterval(timerRef.current as NodeJS.Timeout);
         // Step 4 END
     };
 

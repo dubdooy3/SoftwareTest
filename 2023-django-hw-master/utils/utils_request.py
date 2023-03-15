@@ -26,3 +26,6 @@ def return_field(obj_dict, field_list):
     }
 
 BAD_METHOD = request_failed(-3, "Bad method", 405)
+METHOD_NOT_ALLOWED = request_failed(-3,"Bad method",405)
+BAD_REQUEST = request_failed(-1,"Bad param [Username]",400)
+USER_NOTFIND = request_failed(1,"User not found",404)
